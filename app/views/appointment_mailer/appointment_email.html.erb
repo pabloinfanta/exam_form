@@ -1,0 +1,71 @@
+<h3>Sucursal</h3>
+<p><%= @info['city'] %></p>
+<h3>Datos Empresa</h3>
+<p>Empresa:<%= @info['company'] %></p>
+<p>Rut:<%= @info['rut'] %></p>
+<p>Giro:<%= @info['giro'] %></p>
+<p>Centro de Costos:<%= @info['cost_center'] %></p>
+<p>Nombre del solicitante:<%= @info['applicant_name'] %></p>
+<p>Teléfono_fijo:<%= @info['applicant_phone'] %></p>
+<p>Celular:<%= @info['applicant_cellphone'] %></p>
+<p>Cargo:<%= @info['applicant_position'] %></p>
+<p>Correo:<%= @info['applicant_email'] %></p>
+
+<% count_workers=@info.select {|x| x if x.include?("worker_name")}.count %>
+<% workers = [] %>
+<% count_workers.times do |i|%>
+  <% info = @info.select {|x| x if x.include?("worker") && x.include?(i.to_s)}.to_a%>
+  <% workers.push(info) %>
+<% end %>
+
+<h3>Ingreso de Trabajadores</h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Nombre_trabajador</th>
+      <th>Edad_trabajador</th>
+      <th>Rut_trabajador</th>
+      <th>Cargo_trabajador</th>
+      <th>Comentario_trabajador</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% workers.each do |worker|%>
+      <tr>
+        <td><%= worker[0][1] %></td>
+        <td><%= worker[1][1] %></td>
+        <td><%= worker[2][1] %></td>
+        <td><%= worker[3][1] %></td>
+        <td><%= worker[4][1] %></td>
+      </tr>
+     <%end%> 
+  </tbody>
+</table>
+
+<p>Fecha requerida: <%= @info['date_required'] %></p>
+
+<h3>Batería de Exámenes a solicitar</h3>
+<% examenes = @info.select {|x| x if x.include?('exam')}.to_h%>
+<% examenes = examenes.select{|k, v| k if v == '1'} %>
+<ul>
+  <% examenes.each do |exam| %>
+  <li><%= t(exam[0]) %></li>
+  <% end %> 
+</ul>
+
+<% unless @info['exam_extra'].nil? %>
+  <span>Otro exámen: <%= @info['exam_extra'] %></span>
+ <% end %>
+
+<h3>Drogas</h3>
+<% drugs = @info.select {|x| x if x.include?('drug')}.to_h%>
+<% drugs = drugs.select{|k, v| k if v == '1'} %>
+<ul>
+  <% drugs.each do |drug| %>
+  <li><%= t(drug[0]) %></li>
+  <% end %> 
+</ul>
+
+<% unless @info['exam_drug'].nil? %>
+  <span>Otra droga: <%= @info['exam_drug'] %></span>
+ <% end %> 

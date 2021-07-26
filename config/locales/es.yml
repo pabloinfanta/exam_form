@@ -1,0 +1,10 @@
+es:
+  drug_alcohol: "Alcohol"
+  drug_marijuana: "Marihuana"
+  drug_cocaine: "Cocaína"
+  drug_extra: "Otra droga"
+  exam_basic: "Examen Básico (cargos sin riesgos especiales)"
+  exam_physical_height: "Altura Física"
+  exam_psychometry: "Psicosensométrico riguroso"
+  exam_extra: "Otro exámen"
+  

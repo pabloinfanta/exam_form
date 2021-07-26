@@ -1,0 +1,32 @@
+ @import "bootstrap/scss/bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+
+ .horizontal{
+   display: inline-block;
+ }
+
+ img{
+   width: 15%;
+ }
+
+ label{
+   margin-top: 10px;
+ }
+
+ i{
+   cursor: pointer;
+ }
+
+ #add:hover{
+   color: blue;
+ }
+
+ #remove:hover{
+  color: red;
+}
+
+ .float-right{
+   float: right;
+ }

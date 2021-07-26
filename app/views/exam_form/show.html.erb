@@ -1,0 +1,200 @@
+<div id="appointment" class="my-3">
+  <div class="container bg-light border ">
+    <%= image_tag('logo.png') %>
+    <h2 class="text-center py-3">
+      AGENDA TU HORA EMPRESA</h2>
+
+    <%= form_with url:send_email_path, method: :get, html: { id: "appointment_form" }  do |form| %>
+      <h5>Sucursal</h5>
+       <div class="form-group">
+        <%= form.label :Sucursal %><span class="text-danger">*</span>
+        <%= form.text_field :city, required: true, id: 'appointment_city', class: 'form-control', placeholder: 'El nombre de la sucursal' %>
+      </div>
+      <h5 class= "mt-3">Datos Empresa</h5>
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <%= form.label :Empresa %> <span class="text-danger">*</span>
+          <%= form.text_field :company, required: true, id: 'appointment_company', class: 'form-control', placeholder: 'El nombre de la empresa que solicita los exámenes' %>
+        </div>
+        <div class="col-md-6 form-group">
+          <%= form.label :Dirección %>
+          <%= form.text_field :address, id: 'appointment_address', class: 'form-control', placeholder: 'Cual es la dirección de tu empresa' %>
+        </div>
+        <div class="col-md-6 form-group">
+          <%= form.label :Rut %><span class="text-danger">*</span>
+          <%= form.text_field :rut, required: true, id: 'appointment_rut', class: 'form-control', placeholder: 'Ingresa el RUT de tu empresa' %>
+        </div>
+        <div class="col-md-6 form-group">
+          <%= form.label :Giro %><span class="text-danger">*</span>
+          <%= form.text_field :giro, required: true, id: 'appointment_giro', class: 'form-control', placeholder: 'Ingresa la actividad económica de tu empresa' %>
+        </div>
+        <div class="col-md-6 form-group">
+          <%= form.label :Centro_costos %>
+          <%= form.text_field :cost_center, id: 'appointment_giro', class: 'form-control', placeholder: 'Ingresa la actividad económica de tu empresa' %>
+        </div>
+        <div class="col-md-6 form-group">
+          <%= form.label :Nombre_del_solicitante %><span class="text-danger">*</span>
+          <%= form.text_field :applicant_name, required: true, id: 'appointment_name', class: 'form-control', placeholder: 'Cual es el nombre de la persona que solicita los exámenes' %>
+        </div>
+        <div class="col-md-6 form-group">
+          <%= form.label :Teléfono_fijo %>
+          <%= form.text_field :applicant_phone, id: 'appointment_phone', class: 'form-control', placeholder: 'Indícanos algún teléfono fijo en el que te podamos contactar' %>
+        </div>
+        <div class="col-md-6 form-group">
+          <%= form.label :Celular %><span class="text-danger">*</span>
+          <%= form.text_field :applicant_cellphone, required: true, id: 'appointment_phone', class: 'form-control', placeholder: 'Indícanos algún móvil en el que te podamos contactar' %>
+        </div> 
+        <div class="col-md-6 form-group">
+          <%= form.label :Cargo %>
+          <%= form.text_field :applicant_position, id: 'appointment_position', class: 'form-control', placeholder: 'El cargo que ocupas en tu empresa' %>
+        </div>
+        <div class="col-md-6 form-group">
+          <%= form.label :Email %><span class="text-danger">*</span>
+          <%= form.email_field :applicant_email, required: true, id: 'appointment_email', class: 'form-control', placeholder: 'Indicanos una dirección de correo electrónico para poder comunicarnos contigo' %>
+        </div>
+      </div><hr>
+      <h5>Ingreso de Trabajadores</h5>
+      <em>Ingresa los datos de los trabajadores que se realizaran los exámenes, en caso de que se realizan el exámen en una fecha diferentes debes ingresarla en el espacio asignado. Puedes pinchar en botón con el signo mas para agregar mas de un trabajador a la vez.</em>
+      <div class="float-right my-3">
+        <i id="add" class="fas fa-user-plus fa-2x mx-auto text-right "></i>
+        <i id="remove" class="fas fa-user-minus fa-2x mx-auto text-right"></i>
+      </div> 
+      <div class="row my-4" id="workers">
+        <div class="col-md-3 form-group" >
+          <%= form.label :Nombre_completo %>
+          <%= form.text_field :worker_name0, class: 'form-control' %>
+        </div>
+        <div class="col-md-1 form-group">
+          <%= form.label :Edad %>
+          <%= form.text_field :worker_age0, class: 'form-control' %>
+        </div>
+        <div class="col-md-2 form-group">
+          <%= form.label :Rut%>
+          <%= form.text_field :worker_rut0, class: 'form-control' %>
+        </div>
+         <div class="col-md-3 form-group">
+          <%= form.label :Cargo%>
+          <%= form.text_field :worker_position0, class: 'form-control' %>
+        </div>
+         <div class="col-md-3 form-group ">
+          <%= form.label :Comentario%>
+          <%= form.text_field :worker_comment0, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group ">
+        <h6>Fecha Requerida</h6>
+        <em>Esta es la fecha en que todos los trabajadores o la mayoría del grupo se realizara los exámenes</em>
+        <%= form.date_field :date_required, id: 'appointment_worker_date', class: 'form-control my-4' %>
+      </div><hr>
+      <h5>Batería de Exámenes a solicitar</h5>
+      <%= form.check_box :exam_basic %> <span><%= t(:exam_basic) %></span> <br>
+      <%= form.check_box :exam_physical_height %> <span><%= t(:exam_physical_height) %></span> <br>
+      <%= form.check_box :exam_psychometry %> <span><%= t(:exam_psychometry) %> </span> <br>
+      <h6 class="mt-4">Otros exámenes</h6>
+      <em>¿Necesitas un exámen que no esta en nuestra lista? por favor escribelo en este campo</em>
+      <div class="form-group my-3">
+        <%= form.text_field :exam_extra, id: 'body_batery', class: 'form-control' %>
+      </div><hr>
+
+      <h5>Drogas</h5>
+      <%= form.check_box :drug_alcohol %> <span><%= t(:drug_alcohol) %></span> <br>
+      <%= form.check_box :drug_marijuana %> <span><%= t(:drug_marijuana) %></span> <br>
+      <%= form.check_box :drug_cocaine %> <span><%= t(:drug_cocaine) %></span> <br>
+      <h6 class="mt-4">Otros exámenes de drogas</h6>
+      <em>¿Necesitas un exámen de drogas que no esta en nuestra lista? por favor escribelo en este campo</em>
+      <div class="form-group my-3">
+        <%= form.text_field :drug_extra, id: 'body_drug', class: 'form-control' %>
+      </div><hr>
+
+      <div class="text-center">
+        <%= form.submit 'ENVIAR SOLICITUD AHORA', data: { disable_with: "Enviando..." } , class: 'btn btn-primary btn-lg my-3' %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<script>
+  var id = 1
+  $("#add").click(function() {
+      var div1 = document.createElement("div");
+      div1.setAttribute("class", "col-md-3 form-group mt-2");
+
+      var div2 = document.createElement("div");
+      div2.setAttribute("class", "col-md-1 form-group  mt-2");
+
+      var div3 = document.createElement("div");
+      div3.setAttribute("class", "col-md-2 form-group  mt-2");
+
+      var div4 = document.createElement("div");
+      div4.setAttribute("class", "col-md-3 form-group  mt-2");
+
+      var div5 = document.createElement("div");
+      div5.setAttribute("class", "col-md-3 form-group  mt-2");
+
+      var label_name = document.createElement("label");
+      label_name.appendChild(document.createTextNode("Nombre completo"));
+
+      var input_name = document.createElement("INPUT");
+      input_name.setAttribute("type", "text");
+      input_name.setAttribute("class", "form-control");
+      input_name.setAttribute("name", "worker_name" + id);
+
+      var label_age = document.createElement("label");
+      label_age.appendChild(document.createTextNode("Edad"));
+
+      var input_age = document.createElement("INPUT");
+      input_age.setAttribute("type", "text");
+      input_age.setAttribute("class", "form-control");
+      input_age.setAttribute("name", "worker_age" + id);
+
+      var label_rut = document.createElement("label");
+      label_rut.appendChild(document.createTextNode("Rut"));
+
+      var input_rut = document.createElement("INPUT");
+      input_rut.setAttribute("type", "text");
+      input_rut.setAttribute("class", "form-control");
+      input_rut.setAttribute("name", "worker_rut" + id);
+
+      var label_position = document.createElement("label");
+      label_position.appendChild(document.createTextNode("Cargo"));
+
+      var input_position = document.createElement("INPUT");
+      input_position.setAttribute("type", "text");
+      input_position.setAttribute("class", "form-control");
+      input_position.setAttribute("name", "worker_position" + id);
+
+      var label_comment = document.createElement("label");
+      label_comment.appendChild(document.createTextNode("Comentario"));
+
+      var input_comment = document.createElement("INPUT");
+      input_comment.setAttribute("type", "text");
+      input_comment.setAttribute("class", "form-control");
+      input_comment.setAttribute("name", "worker_comment" + id);
+      
+      div1.appendChild(label_name);
+      div1.appendChild(input_name);
+      div2.appendChild(label_age);
+      div2.appendChild(input_age);
+      div3.appendChild(label_rut);
+      div3.appendChild(input_rut);
+      div4.appendChild(label_position);
+      div4.appendChild(input_position);
+      div5.appendChild(label_comment);
+      div5.appendChild(input_comment); 
+
+      $('#workers').append(div1);
+      $('#workers').append(div2);
+      $('#workers').append(div3);
+      $('#workers').append(div4);
+      $('#workers').append(div5);
+    
+      id = id + 1
+  });
+  
+$("#remove").click(function() {
+  $('#workers > .form-group').slice(-5).remove();
+  id = id - 1
+});
+
+</script>
