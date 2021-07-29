@@ -87,9 +87,21 @@
         <%= form.date_field :date_required, id: 'appointment_worker_date', class: 'form-control my-4' %>
       </div><hr>
       <h5>Batería de Exámenes a solicitar</h5>
-      <%= form.check_box :exam_basic %> <span><%= t(:exam_basic) %></span> <br>
-      <%= form.check_box :exam_physical_height %> <span><%= t(:exam_physical_height) %></span> <br>
-      <%= form.check_box :exam_psychometry %> <span><%= t(:exam_psychometry) %> </span> <br>
+      <%= form.check_box :exam_covid_19 %> <label><%= t(:covid_19) %></label><br>
+      <%= form.check_box :exam_physical_height %> <label><%= t(:exam_physical_height) %></label><br>
+      <%= form.check_box :exam_driver_vp %> <label><%= t(:exam_driver_vp) %></label><br>
+      <%= form.check_box :exam_driver_vl %> <label><%= t(:exam_driver_vl) %></label><br>
+      <%= form.check_box :exam_psycho_technical_vp %> <label><%= t(:exam_psycho_technical_vp) %></label><br>
+      <%= form.check_box :exam_psycho_technical_vl %> <label><%= t(:exam_psycho_technical_vp) %></label><br>
+      <%= form.check_box :exam_risk_condition %> <label><%= t(:exam_risk_condition) %></label><br>
+      <%= form.check_box :exam_cold_exposure %> <label><%= t(:exam_cold_exposure) %></label><br>
+      <%= form.check_box :exam_heat_exposure %> <label><%= t(:exam_heat_exposure) %></label><br>
+      <%= form.check_box :exam_confined_spaces %> <label><%= t(:exam_confined_spaces) %></label><br>
+      <%= form.check_box :exam_visual_ability %> <label><%= t(:exam_visual_ability) %></label><br>
+      <%= form.check_box :exam_hearing %> <label><%= t(:exam_hearing) %></label><br>
+      <%= form.check_box :exam_geographic_height %> <label><%= t(:exam_geographic_height)%></label><br>
+      <%= form.check_box :exam_noise %> <label><%= t(:exam_noise)%></label><br>
+      <%= form.check_box :exam_rescue_brigade %> <label><%= t(:exam_rescue_brigade)%></label><br>
       <h6 class="mt-4">Otros exámenes</h6>
       <em>¿Necesitas un exámen que no esta en nuestra lista? por favor escribelo en este campo</em>
       <div class="form-group my-3">
@@ -97,9 +109,9 @@
       </div><hr>
 
       <h5>Drogas</h5>
-      <%= form.check_box :drug_alcohol %> <span><%= t(:drug_alcohol) %></span> <br>
-      <%= form.check_box :drug_marijuana %> <span><%= t(:drug_marijuana) %></span> <br>
-      <%= form.check_box :drug_cocaine %> <span><%= t(:drug_cocaine) %></span> <br>
+      <%= form.check_box :drug_alcohol %> <label><%= t(:drug_alcohol) %></label> <br>
+      <%= form.check_box :drug_marijuana %> <label><%= t(:drug_marijuana) %></label> <br>
+      <%= form.check_box :drug_cocaine %> <label><%= t(:drug_cocaine) %></label> <br>
       <h6 class="mt-4">Otros exámenes de drogas</h6>
       <em>¿Necesitas un exámen de drogas que no esta en nuestra lista? por favor escribelo en este campo</em>
       <div class="form-group my-3">
