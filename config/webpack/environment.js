@@ -5,8 +5,8 @@ environment.plugins.prepend('Provide',
     $: 'jquery',
     jQuery: 'jquery',
     jquery: 'jquery',
-    'window.jQuery': 'jquery',
     Popper: ['popper.js', 'default']
   })
 )
+
 module.exports = environment

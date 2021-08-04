@@ -6,10 +6,9 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("channels")
-import 'bootstrap/dist/js/bootstrap.bundle'
+import 'bootstrap'
 import JQuery from 'jquery';
 window.$ = window.JQuery = JQuery;
-import 'popper.js/dist/esm/popper'
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
