@@ -58,7 +58,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "exam_form_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { :host => 'https://safe-tor-32280.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'https://exam-form-znc66.ondigitalocean.app/' }
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
