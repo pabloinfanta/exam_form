@@ -61,7 +61,7 @@
 						<div class="col-md-12 form-group">
 							<%= form.label :Teléfono_fijo %>
 							<%= form.text_field :applicant_phone, id: 'appointment_phone', class: 'form-control', placeholder: 'Indícanos algún teléfono fijo en el que te podamos contactar' %>
-							<div class="valid-feedback">No es necesario</div>
+							<br>
 						</div>
 						<div class="col-md-12 form-group">
 							<%= form.label :Celular %><span class="text-danger">*</span>
@@ -72,7 +72,7 @@
 						<div class="col-md-12 form-group">
 							<%= form.label :Cargo %>
 							<%= form.text_field :applicant_position, id: 'appointment_position', class: 'form-control', placeholder: 'El cargo que ocupas en tu empresa' %>
-							<div class="valid-feedback">No es necesario</div>
+							<br>
 						</div>
 						<div class="col-md-12 form-group">
 							<%= form.label :Email %><span class="text-danger">*</span>
@@ -100,7 +100,7 @@
 				<div class="col-md-2 form-group">
 					<%= form.label :Edad %>
 					<%= form.number_field :worker_age0, class: 'form-control' %>
-					<div class="valid-feedback">No es necesario</div>
+					<br>
 				</div>
 				<div class="col-md-2 form-group">
 					<%= form.label :Rut%><span class="text-danger">*</span>
@@ -117,14 +117,14 @@
 				<div class="col-md-2 form-group ">
 					<%= form.label :Comentario%>
 					<%= form.text_field :worker_comment0, class: 'form-control' %>
-					<div class="valid-feedback">No es necesario</div>
+					<br>
 				</div>
 			</div>
 			<div class="form-group ">
 				<h6>Fecha Requerida</h6>
 				<em>Esta es la fecha en que todos los trabajadores o la mayoría del grupo se realizara los exámenes</em>
 				<%= form.date_field :date_required, id: 'appointment_worker_date', class: 'form-control my-4' %>
-				<div class="valid-feedback">No es necesario</div>
+				<br>
 			</div>
 			<hr>
 			<h5>Batería de Exámenes a solicitar</h5>
@@ -147,7 +147,7 @@
 			<em>¿Necesitas un exámen que no esta en nuestra lista? por favor escribelo en este campo</em>
 			<div class="form-group my-3">
 				<%= form.text_field :exam_extra, id: 'body_batery', class: 'form-control' %>
-				<div class="valid-feedback">No es necesario</div>
+				<br>
 			</div>
 			<hr>
 			<h5>Drogas</h5>
@@ -158,7 +158,7 @@
 			<em>¿Necesitas un exámen de drogas que no esta en nuestra lista? por favor escribelo en este campo</em>
 			<div class="form-group my-3">
 				<%= form.text_field :drug_extra, id: 'body_drug', class: 'form-control' %>
-				<div class="valid-feedback">No es necesario</div>
+				<br>
 			</div>
 			<hr>
 			<div class="text-center">
