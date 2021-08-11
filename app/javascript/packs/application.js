@@ -95,7 +95,6 @@ $( document ).ready(function() {
 
 		var valid2 = document.createElement("div");
 		valid2.setAttribute("class", "valid-feedback");
-		valid2.appendChild(document.createTextNode("No es necesario"));
 
 		var valid3 = document.createElement("div");
 		valid3.setAttribute("class", "valid-feedback");
@@ -115,7 +114,6 @@ $( document ).ready(function() {
 
 		var valid5 = document.createElement("div");
 		valid5.setAttribute("class", "valid-feedback");
-		valid5.appendChild(document.createTextNode("No es necesario"));
 
 		div1.appendChild(label_name);
 		div1.appendChild(span01);
